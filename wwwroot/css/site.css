@@ -1,0 +1,207 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 1000px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /*  background-image: url('/images/car9.jpg');*/
+    margin-bottom: 60px;
+    background-color: aliceblue;
+}
+
+
+
+.hero {
+    position: relative;
+    height: 100vh;
+    width: auto;
+    background-image: url('/images/car8.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0;
+}
+
+.hero_2 {
+    position: relative;
+    height: 100vh;
+    background-image: url('/images/car9.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin: 0 0 15px 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero h3 {
+    font-size: 2.0rem;
+    margin: 0 0 15px 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero p {
+    font-size: 1.7rem;
+    margin: 0 0 25px 0;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+.hero .btn {
+    padding: 12px 30px;
+    background-color: #fff;
+    color: #00315a;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+    .hero .btn:hover {
+        background-color: #f2f2f2;
+        transform: scale(1.05);
+    }
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+}
+
+#services .carousel-item img {
+    max-height: 550px;
+    object-fit: contain; /* не обрезает изображение, просто масштабирует */
+    width: contain;
+}
+
+
+/*body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f9f9f9;
+    color: #333;
+    padding: 0 !important;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    color: #fff;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: red;  красное название 
+}*/
+
+/*.navbar  {
+    background-image: url('/images/car1.jpg');
+}*/
+/*.nav_smal {
+    background-image: url('/images/car1.jpg');
+}
+
+.nav a {
+    margin-left: 100px;
+    color: #fff;
+    text-decoration: none;
+}
+
+    .nav a:hover {
+        color: #ff6666;
+    }
+
+.hero {
+    position: relative;
+    height: 100vh;
+    width: auto;
+    background-image: url('/images/car1.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 ;
+}
+
+.hero_2 {
+    position: relative;
+    height: 100vh;
+    background-image: url('/images/car2.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+    .hero h1 {
+        font-size: 3.5rem;
+        margin: 0 0 15px 0;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .hero p {
+        font-size: 1.7rem;
+        margin: 0 0 25px 0;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    }
+
+    .hero .btn {
+        padding: 12px 30px;
+        background-color: #fff;
+        color: #c00;
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+    }
+
+        .hero .btn:hover {
+            background-color: #f2f2f2;
+            transform: scale(1.05);
+        }*/
