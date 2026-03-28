@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Avrora.Models.Price.PriceViewModel
+@{
     ViewData["Title"] = "Главная";
 }
 
@@ -9,10 +10,12 @@
     
     <h1>АВТОМИЙКА</h1>
         <p>Чистота і блиск вашого авто</p>
-        <a href="#booking" class="btn">Записатися на мийку</a>
-    </section>
-
-
+   <a href="#booking"
+       data-bs-toggle="modal"
+       data-bs-target="#authModal"
+       class="btn">Записатися на мийку
+   </a>
+</section>
 
 <!-- Услуги -->
 <section id="services" class="services hero_2 mb-1 text-white text-center">
@@ -29,28 +32,28 @@
             <div class="carousel-item active">
                 <img src="~/images/car25.jpg" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                        <h5>Експрес-мийка</h5>
+                        <h5>@Model.Prices.ElementAt(0).ServiceName</h5>
                         <p>Бистра та акуратна мийка кузова.</p>
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="~/images/car19.jpg" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                        <h5>Повна мийка</h5>
+                        <h5>@Model.Prices.ElementAt(1).ServiceName</h5>
                         <p>Кузов, коврики, стікла – все до блиску.</p>
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="~/images/car22.jpg" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                        <h5>Хімчистка салону</h5>
+                        <h5>@Model.Prices.ElementAt(2).ServiceName</h5>
                         <p>Видалим пиль та п'ятна в салоні вашого авто.</p>
                 </div>
             </div>
                 <div class="carousel-item">
                     <img src="~/images/car23.jpg" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Поліровка кузова</h5>
+                        <h5>@Model.Prices.ElementAt(2).ServiceName</h5>
                         <p>Повернемо блиск вашого авто.</p>
                     </div>
                 </div>
@@ -65,92 +68,48 @@
         </button>
     </div>
     </div>
-    @* <div class="slider-container position-relative d-flex justify-content-center align-items-center">
-        <button class="btn btn-light slider-btn prev-btn">&#10094;</button>
-
-        <div class="card-slider">
-            <div class="card active">
-                <img src="~/images/car18.jpg" class="card-img-top" alt="Експрес-мийка">
-                <div class="card-body">
-                    <h5 class="card-title">Експрес-мийка</h5>
-                    <p class="card-text">Бистра та акуратна мийка кузова.</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="~/images/car19.jpg" class="card-img-top" alt="Повна мийка">
-                <div class="card-body">
-                    <h5 class="card-title">Повна мийка</h5>
-                    <p class="card-text">Кузов, коврики, стікла – все до блиску.</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="~/images/car22.jpg" class="card-img-top" alt="Хімчистка салону">
-                <div class="card-body">
-                    <h5 class="card-title">Хімчистка салону</h5>
-                    <p class="card-text">Видалим пиль та п'ятна в салоні вашого авто.</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="~/images/car23.jpg" class="card-img-top" alt="Поліровка кузова">
-                <div class="card-body">
-                    <h5 class="card-title">Поліровка кузова</h5>
-                    <p class="card-text">Повернемо блиск вашого авто.</p>
-                </div>
-            </div>
-        </div>
-        <button class="btn btn-light slider-btn next-btn">&#10095;</button>
-    </div> *@
-</section>
-
-         
-
-
-
-    @* <div class="service-cards flex-row">
-        
-        <div class="card" style="width: 18rem;">
-            <img src="~/images/car3.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <p class="card-text">Быстрая и аккуратная мойка кузова.</p>
-            </div>
-        </div>
-
-        <div class="card" style="width: 18rem;">
-            <img src="~/images/car8.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Полная мойка</h5>
-                <p class="card-text">Кузов, коврики, стекла – всё до блеска.</p>
-            </div>
-        <div class="card">
-            <h3>Экспресс-мойка</h3>
-            <p>Быстрая и аккуратная мойка кузова.</p>
-        </div>
-        <div class="card">
-            <h3>Полная мойка</h3>
-            <p>Кузов, коврики, стекла – всё до блеска.</p>
-        </div>
-        <div class="card">
-           
-            <h3>Химчистка салона</h3>
-            <p>Удалим пыль и пятна внутри авто.</p>
-        </div>
-    </div> *@
 </section>
 
 <!-- Цены -->
 <section id="prices" class="prices hero_2 mb-1">
-    <h2>Ціни</h2>
-    <table>
-        <tr><th></th><th></th><th>Тип кузова автомобіля</th><th></th></tr>
-        <tr><th>Послуга</th><th>Легковий</th><th>Кросовер</th><th>Універсал</th></tr>
-        <tr><td>Експрес-мийка</td><td>150</td><td>200 грн</td><td>250 грн</td></tr>
-        <tr><td>Поовна мийка</td><td>250</td><td>300 грн</td><td>350 грн</td></tr>
-        <tr><td>Хімчистка салону</td><td>450</td><td>470 грн</td><td>490 грн</td></tr>
-        <tr><td>Поліровка автомобіля</td><td>1000</td><td>1200 грн</td><td>1250 грн</td></tr>
-    </table>
+    <h2>Ціни на мийку автомобіля</h2>
+
+    <table class="table text-white mt-4">
+        @* <tr><th></th><th></th><th>Тип кузова автомобіля</th><th></th></tr> *@
+      
+        <tr>
+            <th></th>
+            @foreach(var item in Model.Prices.ElementAt(0).PricesForType)
+        {
+               
+            <th>@item.Key </th>
+        }
+        </tr>
+        
+            @foreach(var itemService in Model.Prices)
+            {
+            <tr>
+                <td>  @itemService.ServiceName </td>
+                @{
+                   @foreach (var itemForType in itemService.PricesForType)
+                {
+                   
+                   @if(itemForType.Value!=null)
+                            {
+                                <td> @itemForType.Value грн</td>
+                                    }
+                            else
+                            {
+                            <td> - </td>
+                            }
+                            
+                   
+                }
+                }
+            </tr>
+            }
+       </table>
+
 </section>
 
 <!-- О нас -->

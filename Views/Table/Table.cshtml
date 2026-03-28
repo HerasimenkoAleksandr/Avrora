@@ -1,0 +1,213 @@
+﻿@model Avrora.Models.TableModel.TableViewModel
+@{
+ 
+    ViewData["Title"] = "Запис на мийку";
+    ViewData["ShowNavbar"] = false;
+}
+
+    <div class="wash-table-card">
+
+ 
+        <div class="container">
+            <a class="ms-4 navbar-brand logo text-white" asp-area="" asp-controller="Home" asp-action="Index"> АВРОРА</a>
+        </div>
+    <div id="wash-title-time" class="container">
+    </div>
+
+    @{
+        var start = DateTime.Today.AddHours(9);  // 09:00
+        var end = DateTime.Today.AddHours(18);   // 18:00
+    }
+
+    <div class="wash-title">
+        <h3 id="wash-title-date">📅 Запис на мийку — @DateTime.Now.ToString("dd.MM.yyyy")</h3>
+    </div>
+    @if (end <= DateTime.Now && end.Date == DateTime.Today.Date)
+    {
+        <div class="wash-title">
+            <h3 id="wash-title-date">Мийка відчиниться о 09:00 @DateTime.Now.AddDays(1).ToString("dd.MM.yyyy")</h3>
+        </div>
+    }
+    else
+    {
+        if (start > DateTime.Now)
+        {
+            <div class="wash-title">
+                <h3 id="wash-title-date">Почнем працювати о 09:00 </h3>
+            </div>
+        }
+    }
+
+        <table class=" table table-hover wash-table">
+
+        <thead>
+            <tr>
+                <th>⏱ Час</th>
+                <th>🚗 Номер авто</th>
+                <th>Марка / Модель</th>
+                <th>🔧 Послуга</th>
+                <th>👤 Клієнт</th>
+                <th>Статус</th>
+            </tr>
+        </thead>
+
+        <tbody>
+           
+
+            @for (var time = start; time <= end; time = time.AddHours(1))
+            {
+                @for (var count = 0; count < 2; count++)
+                {
+                    <tr>
+                     
+                        @if (time >= DateTime.Now.AddHours(-4))
+                        {
+
+
+                    <td>@time.ToString("HH:mm")</td>
+
+                    
+                            var tablemodel = Model.Table.FirstOrDefault(x => x.DateTime.TimeOfDay == time.TimeOfDay );
+                    
+
+                    @if (tablemodel != null)
+                    {
+                        @* <td>@tablemodel.DateTime.ToShortTimeString()</td> *@
+                        <td>@tablemodel.CarNamber</td>
+                        <td>@tablemodel.CarModel</td>
+                        <td>@tablemodel.ServiceName</td>
+                        <td>@tablemodel.Name</td>
+                        <td>
+                            @switch (tablemodel.StatusWork)
+                            {
+                                case (1):
+                                    <span class="status status-busy">
+                                        В процесі
+                                    </span>
+                                    break;
+                                case (2):
+                                    <span class="status status-free">
+                                        Очікує
+                                    </span>
+                                    break;
+                                case (3):
+                                    <span class="status status-wait">
+                                        Вільний час
+                                    </span>
+                                    break;
+                                case (4):
+                                    <span class="status status-done">
+                                        Готово
+                                    </span>
+                                    break;
+
+                            }
+                        </td>
+                    }
+                    else
+                    {
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <span class="status status-wait">
+                                Вільний час
+                            </span>
+                        </td>
+                            }
+                        }
+
+                    </tr>
+
+            }
+            }
+
+            @* @foreach(var tablemodel in Model.Table)
+            {
+                <tr>
+                    <td>@tablemodel.DateTime.ToShortTimeString()</td>
+                    <td>@tablemodel.CarNamber</td>
+                    <td>@tablemodel.CarModel</td>
+                    <td>@tablemodel.ServiceName</td>
+                    <td>@tablemodel.Name</td>
+                    <td>
+                            @switch(tablemodel.StatusWork)
+                            {
+                                case(1):
+                                     <span class="status status-busy">
+                                         В процесі
+                                    </span>
+                                    break;
+                                case(2):
+                                    <span class="status status-free">
+                                    Очікує
+                                    </span>
+                                break;
+                                case (3):
+                                    <span class="status status-wait">
+                                    Вільний час
+                                    </span>
+                                     break;
+                                case (5):
+                                    <span class="status status-done">
+                                    Готово
+                                    </span>
+                                    break;
+
+                            }
+                    </td>
+                </tr>
+            } *@
+            @* <tr>
+                <td>09:00</td>
+                <td>AA 1234 BB</td>
+                <td>Tesla Model 3</td>
+                <td>Повна мийка</td>
+                <td>Олександр</td>
+                <td><span class="status status-busy">В процесі</span></td>
+            </tr>
+
+            <tr>
+                <td>09:30</td>
+                <td>KA 5521 CE</td>
+                <td>BMW X5</td>
+                <td>Хімчистка салону</td>
+                <td>Марина</td>
+                <td><span class="status status-free">Очікує</span></td>
+            </tr>
+            <tr>
+                <td>10:00</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><span class="status status-wait">Вільний час</span></td>
+            </tr>
+
+            <tr>
+                <td>11:00</td>
+                <td>BC 7788 AA</td>
+                <td>Toyota Camry</td>
+                <td>Експрес мийка</td>
+                <td>Ігор</td>
+                <td><span class="status status-done">Готово</span></td>
+            </tr>
+
+            <tr>
+                <td>10:30</td>
+                <td>AX 9911 OO</td>
+                <td>Audi A6</td>
+                <td>Повна мийка + Віск</td>
+                <td>Світлана</td>
+                <td><span class="status status-free">Очікує</span></td>
+            </tr> *@
+
+        </tbody>
+        
+    </table>
+   
+    <div id="wash-title-time"  class="wash-title">
+        
+    </div>
+</div>

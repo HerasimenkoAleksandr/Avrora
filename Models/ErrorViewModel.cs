@@ -1,4 +1,4 @@
-namespace Avrora.Models
+  namespace Avrora.Models
 {
     public class ErrorViewModel
     {

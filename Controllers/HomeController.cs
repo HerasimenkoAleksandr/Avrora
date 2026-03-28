@@ -1,7 +1,11 @@
-using System.Diagnostics;
 using Avrora.Models;
+using Avrora.Models.Enums;
+using Avrora.Models.Price;
 using Avrora.Services.Hash;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
+using System.Diagnostics;
+using System.Text.Json;
 
 namespace Avrora.Controllers
 {
@@ -24,8 +28,17 @@ namespace Avrora.Controllers
 
         public IActionResult Index()
         {
+           PriceViewModel price = new PriceViewModel();
+
+           return View(price);
+        }
+        public IActionResult SingUp()
+        {
             return View();
         }
+
+
+
 
         public IActionResult Privacy()
         {
